@@ -1,0 +1,5 @@
+# Randominzing
+
+random_df=df.sample(frac=1)
+random_df.reset_index(drop=True,inplace=False)
+

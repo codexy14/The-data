@@ -1,0 +1,18 @@
+#Cleaning dataset
+
+
+random_df.isna().sum()
+
+random_df = random_df.fillna(random_df.mean())
+
+random_df.drop(columns=['WHOIS_COUNTRY','WHOIS_STATEPRO','WHOIS_REGDATE','WHOIS_UPDATED_DATE'],inplace=True)
+
+from sklearn.preprocessing import LabelEncoder
+categ = ['URL','CHARSET','SERVER']
+# Encode Categorical Columns
+le = LabelEncoder()
+random_df[categ] = random_df[categ].apply(le.fit_transform)
+
+random_df.head(10)
+
+random_df.isna().sum()

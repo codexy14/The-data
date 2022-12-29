@@ -1,0 +1,2 @@
+loss, accuracy = cnn.evaluate(X_test, Y_test)
+print("\nLoss: %.2f, Accuracy: %.2f%%" % (loss, accuracy*100))

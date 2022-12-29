@@ -1,0 +1,23 @@
+from keras.models import Sequential
+from keras.layers import Convolution1D,MaxPooling1D
+from keras.layers import Dense, Dropout
+from keras.layers import LSTM
+
+
+cnn = Sequential()
+
+cnn.add(Convolution1D(32,
+                 3,
+                 padding='valid',
+                 activation='relu',
+                 strides=1,
+                 input_shape=(16, 1)))
+cnn.add(MaxPooling1D(pool_size=2))
+cnn.add(Dropout(0.5))
+
+cnn.add(LSTM(70))
+cnn.add(Dense(2, activation="softmax"))
+
+cnn.compile(loss="sparse_categorical_crossentropy", optimizer="adam",metrics=['accuracy'])
+
+history=cnn.fit(X_train, Y_train, epochs=70,verbose=1,batch_size=32,validation_data=(X_test, Y_test))

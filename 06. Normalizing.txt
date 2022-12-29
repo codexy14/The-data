@@ -1,0 +1,7 @@
+X= random_df.iloc[:,:-1]
+Y=random_df['Type']
+
+#Normalizing
+from sklearn.preprocessing import Normalizer
+scaler = Normalizer().fit(X)
+X= scaler.transform(X)

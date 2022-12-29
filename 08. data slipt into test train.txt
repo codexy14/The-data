@@ -1,0 +1,3 @@
+#data slipt into test train
+X_train , X_test , Y_train , Y_test = train_test_split(X_res,y_res, test_size=0.3 , stratify=y_res)
+Y_train.value_counts()

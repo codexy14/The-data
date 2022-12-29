@@ -1,0 +1,6 @@
+#smote for data balancing
+
+from imblearn.over_sampling import SMOTE
+sm = SMOTE(random_state=16,k_neighbors=1)
+X_res, y_res = sm.fit_resample(X, Y)
+y_res.value_counts()
